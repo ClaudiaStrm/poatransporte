@@ -22,7 +22,7 @@ public class Onibus {
 
     @Id
     @Column(name = "ID", nullable = false)
-    protected Long idLinha;
+    protected Long id;
 
     @Length(max = 200, min = 5)
     @Column(name = "NOME", nullable = false)
