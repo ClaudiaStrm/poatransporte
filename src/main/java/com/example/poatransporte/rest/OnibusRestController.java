@@ -1,6 +1,6 @@
 package com.example.poatransporte.rest;
 
-import com.example.poatransporte.DTO.OnibusDTO;
+import com.example.poatransporte.dto.OnibusDTO;
 import com.example.poatransporte.entity.Onibus;
 import com.example.poatransporte.service.OnibusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/linha")
