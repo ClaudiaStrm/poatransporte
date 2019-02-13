@@ -12,17 +12,23 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Localizacao")
-public class Localizacao {
+@Table(name = "Cliente")
+public class Cliente {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Localizacao_SEQ")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="Cliente_SEQ")
     @Column(name = "id", nullable = false)
     protected Long id;
 
-    @Column(name = "latitude")
-    protected String latitude;
+    @Column(name = "nome")
+    protected String nome;
 
-    @Column(name = "longitude")
-    protected String longitude;
+    @Column(name = "cpf")
+    protected String cpf;
+
+    //protected List<Linha> linhasCliente;
+
+
+
+
 }

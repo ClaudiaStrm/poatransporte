@@ -1,5 +1,6 @@
 package com.example.poatransporte.dto;
 
+import com.example.poatransporte.entity.Localizacao;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,4 +23,14 @@ public class LocalizacaoDTO {
     @JsonProperty("lng")
     public String lng;
 
+    public Long idLinha;
+
+
+    public Localizacao mapToLocalizacao() {
+        return Localizacao
+                .builder()
+                .latitude(this.lat)
+                .longitude(this.lng)
+                .build();
+    }
 }

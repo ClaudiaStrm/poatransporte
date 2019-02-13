@@ -14,19 +14,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Onibus")
-public class Onibus {
+@Table(name = "Linha")
+public class Linha {
 
     @Id
-    @Column(name = "ID", nullable = false)
+    @Column(name = "id", nullable = false)
     protected Long id;
 
     @Length(max = 60, min = 2)
-    @Column(name = "NOME", nullable = false)
+    @Column(name = "nome", nullable = false)
     protected String nome;
 
     @Length(max = 8, min = 3)
-    @Column(name = "CODIGO", nullable = false)
+    @Column(name = "codigo", nullable = false)
     protected String codigo;
 
 }
