@@ -19,7 +19,15 @@ Foi utilizado [Spring](https://spring.io/) e suas ferramentas para facilitar o d
 #### Testes
 Os testes unitários foram feitos utilizando [JUnit4](https://junit.org/junit4/) e [Mockito](https://site.mockito.org/) para fazer o mock dos dados.
 
-## Requisições
+#### Requisições
 
-Na pasta __postman__, no diretório raiz, estão as coleções do Postman com exemplos de requisições. Para a aplicação rodar corretamente, é necessário primeiro entrar na url */api/linha/integracao*. É a partir dela que é feita a inserção dos dados da API com o banco de dados. O processo é demorado, mas precisa ser feito apenas uma vez. A partir daí, é possível fazer a busca de todas as linhas ou de uma única linha (por id ou por nome) direto do banco de dados.
-Além das requisições das linhas, há o CRUD completo de cliente. Também há exemplos dessas requisições na coleção do postman.
+Na pasta __postman__, no diretório raiz, estão as coleções do Postman com exemplos de requisições. 
+A requisição de integração é a que faz a busca das informações da API e insere no banco. Existem três requisições das linhas: todas as linhas, busca passando id e busca passando nome. Há também o CRUD completo de cliente. Tem exemplos dessas requisições na coleção do postman.
+
+
+## Rodando a aplicação
+
+Após subir o servidor, para a aplicação rodar corretamente, é necessário primeiro entrar na url */api/linha/integracao*. É a partir dela que é feita a inserção dos dados da API com o banco de dados. O processo é demorado, mas precisa ser feito apenas uma vez. A partir daí, é possível fazer a busca de todas as linhas ou de uma única linha (por id ou por nome) direto do banco de dados.
+Também é possível cadastrar, excluir, modificar e buscar um cliente, e a lista de todos os clientes cadastrados.
+
+A aplicação está configurada para apagar o banco de dados toda vez que o servidor for derrubado. Para não precisar fazer a requisição de integração mais de uma vez, é preciso modificar o arquivo [application.properties](https://github.com/ClaudiaStrm/poatransporte/blob/master/src/main/resources/application.properties). Na linha 5, o valor *create* deve ser modificado para *update*.
