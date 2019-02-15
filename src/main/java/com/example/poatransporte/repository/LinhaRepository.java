@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface LinhaRepository extends JpaRepository<Linha, Long> {
 
-    List<Linha> findByNome(@Param("nome") String nome);
+    List<Linha> findByNomeIgnoreCase(@Param("nome") String nome);
 }

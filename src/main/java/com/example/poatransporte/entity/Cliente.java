@@ -13,10 +13,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "Cliente")
+@SequenceGenerator(name="CLIENTE_SEQ", sequenceName="cliente_seq", allocationSize=1, initialValue = 1)
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="Cliente_SEQ")
+    @GeneratedValue(strategy= GenerationType.IDENTITY, generator="cliente_seq")
     @Column(name = "id", nullable = false)
     protected Long id;
 
@@ -25,10 +26,4 @@ public class Cliente {
 
     @Column(name = "cpf")
     protected String cpf;
-
-    //protected List<Linha> linhasCliente;
-
-
-
-
 }

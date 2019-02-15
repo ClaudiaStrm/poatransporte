@@ -23,17 +23,16 @@ public class LocalizacaoService extends AbstractCrudService<Localizacao> {
     @Transactional
     public void salvarLocalizacaoEItinerario(LinhaDTO linhaDTO) {
         Map<String, LocalizacaoDTO> itinerarioLinha = linhaDTO.getItinerario();
-
         itinerarioLinha.entrySet().forEach(localizacaoDTO -> {
             Localizacao localizacao = this.salvarLocalizacao(
                     localizacaoDTO.getValue().mapToLocalizacao());
-            itinerarioService.salvar(linhaDTO.mapToLinha(), localizacao, localizacaoDTO.getKey());
+            itinerarioService.salvarItinerario(linhaDTO.mapToLinha(), localizacao, localizacaoDTO.getKey());
         });
     }
 
     @Transactional
     public Localizacao salvarLocalizacao(Localizacao localizacao) {
-        return localizacaoRepository.save(localizacao);
+        return this.save(localizacao);
     }
 
     @Override

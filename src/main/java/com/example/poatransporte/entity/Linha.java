@@ -1,12 +1,16 @@
 package com.example.poatransporte.entity;
 
+import com.example.poatransporte.dto.LinhaDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Builder
@@ -29,4 +33,13 @@ public class Linha {
     @Column(name = "codigo", nullable = false)
     protected String codigo;
 
+
+    public LinhaDTO mapToDTO() {
+        return LinhaDTO
+                .builder()
+                .id(this.id)
+                .codigo(this.codigo)
+                .nome(this.nome)
+                .build();
+    }
 }

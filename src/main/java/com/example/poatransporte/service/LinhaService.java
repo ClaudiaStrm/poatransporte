@@ -19,7 +19,6 @@ import java.lang.reflect.Type;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class LinhaService extends AbstractCrudService <Linha> {
@@ -34,23 +33,27 @@ public class LinhaService extends AbstractCrudService <Linha> {
     private ItinerarioRepository itinerarioRepository;
 
     public List<Linha> buscarLinhas() {
-        return linhaRepository.findAll();
+        return this.findAll();
     }
 
-    public Optional<Linha> buscarPorId(Long id) throws IOException {
-        return this.findById(id);
+    public LinhaDTO buscarPorId(Long id) {
+        LinhaDTO linha = this.findById(id).get().mapToDTO();
+        linha.setListaItinerario(itinerarioRepository.findByIdLinha(linha.getId()));
+        return linha;
+    }
+
+    public List<Linha> buscarPorNome(String nome) {
+        return linhaRepository.findByNomeIgnoreCase(nome);
     }
 
     @Transactional(readOnly = false)
-    public String integrarBancoComAPI() throws IOException {
+    public List<Linha> integrarBancoComAPI() throws IOException {
         List<LinhaDTO> linhasAPI = buscarTodasAsLinhasAPI();
         for (LinhaDTO dto : linhasAPI) {
             this.save(dto.mapToLinha());
-            System.out.println("Salvou!!! " + dto.getNome());
             localizacaoService.salvarLocalizacaoEItinerario(this.buscarLinhaPorIdAPI(dto.getId()));
-            System.out.println("Salvou o resto!!! ");
         }
-        return "Integração realizada com sucesso.";
+        return linhaRepository.findAll();
     }
 
     public LinhaDTO buscarLinhaPorIdAPI(Long id) throws IOException {

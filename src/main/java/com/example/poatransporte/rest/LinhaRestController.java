@@ -1,5 +1,6 @@
 package com.example.poatransporte.rest;
 
+import com.example.poatransporte.dto.LinhaDTO;
 import com.example.poatransporte.entity.Linha;
 import com.example.poatransporte.service.LinhaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,18 @@ public class LinhaRestController {
         return ResponseEntity.ok(linhaService.buscarLinhas());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Linha> buscarPorId(@PathVariable Long id) throws IOException {
-        return linhaService.buscarPorId(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    @GetMapping("/id/{id}")
+    public ResponseEntity<LinhaDTO> buscarPorId(@PathVariable Long id) throws IOException {
+        return ResponseEntity.ok(linhaService.buscarPorId(id));
+    }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<List<Linha>> buscarPorNome(@PathVariable String nome) throws IOException {
+        return ResponseEntity.ok(linhaService.buscarPorNome(nome));
     }
 
     @GetMapping("/integracao")
-    public ResponseEntity<String> integrarBancoComAPI() throws IOException {
-        return ResponseEntity.ok(linhaService.integrarBancoComAPI());
+    public ResponseEntity.BodyBuilder integrarBancoComAPI() throws IOException {
+        return ResponseEntity.status(200);
     }
 }

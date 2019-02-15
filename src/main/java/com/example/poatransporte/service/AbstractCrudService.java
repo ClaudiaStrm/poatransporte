@@ -24,11 +24,6 @@ public abstract class AbstractCrudService<ENTITY> {
         getRepository().deleteById(id);
     }
 
-    @Transactional(readOnly = false, rollbackFor = Exception.class)
-    public void deleteAll() {
-        getRepository().deleteAll();
-    }
-
     public Optional<ENTITY> findById(Long id){
         return getRepository().findById(id);
     }

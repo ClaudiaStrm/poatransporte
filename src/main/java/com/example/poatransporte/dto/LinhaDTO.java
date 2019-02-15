@@ -1,15 +1,18 @@
 package com.example.poatransporte.dto;
 
+import com.example.poatransporte.entity.Itinerario;
 import com.example.poatransporte.entity.Linha;
 import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-
+@Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "idlinha",
@@ -30,17 +33,19 @@ public class LinhaDTO {
         @JsonProperty("codigo")
         public String codigo;
         @JsonIgnore
-        public Map<String, LocalizacaoDTO> itinerario = new HashMap<>();
+        public Map<String, LocalizacaoDTO> mapItinerario = new HashMap<>();
 
         @JsonAnyGetter
         public Map<String, LocalizacaoDTO> getItinerario() {
-            return this.itinerario;
+            return this.mapItinerario;
         }
 
         @JsonAnySetter
         public void setItinerario(String name, LocalizacaoDTO value) {
-                itinerario.put(name, value);
+                mapItinerario.put(name, value);
         }
+
+        public List<Itinerario> listaItinerario;
 
         public Linha mapToLinha() {
                 return Linha
@@ -50,4 +55,6 @@ public class LinhaDTO {
                         .codigo(this.getCodigo())
                         .build();
         }
+
+
 }
