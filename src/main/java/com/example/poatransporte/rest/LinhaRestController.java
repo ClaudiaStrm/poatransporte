@@ -36,7 +36,7 @@ public class LinhaRestController {
     }
 
     @GetMapping("/integracao")
-    public ResponseEntity.BodyBuilder integrarBancoComAPI() throws IOException {
-        return ResponseEntity.status(200);
+    public ResponseEntity<List<Linha>> integrarBancoComAPI() throws IOException {
+        return ResponseEntity.ok(linhaService.integrarBancoComAPI());
     }
 }

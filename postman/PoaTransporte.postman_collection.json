@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "3b3ca801-6074-4ebd-8430-d57fd62ff682",
+		"name": "PoaTransporte",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Linhas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/linha/todas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"linha",
+						"todas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LinhaPorId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/linha/id/5448",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"linha",
+						"id",
+						"5448"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LinhaPorNome",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/linha/nome/AGOstinHO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"linha",
+						"nome",
+						"AGOstinHO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IntegracaoAPI",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/linha/integracao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"linha",
+						"integracao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Cliente\",\n    \"cpf\": \"948573849\",\n    \"linhas\": [\n        { \"id\": 5529 },\n        { \"id\": 5577 },\n        { \"id\": 5548 }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\",\n    \"nome\": \"ClienteModificado\",\n    \"cpf\": \"948573849\",\n    \"linhas\": [\n        { \"id\": 5529 },\n        { \"id\": 5577 },\n        { \"id\": 5548 }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\",\n    \"nome\": \"ClienteModificado\",\n    \"cpf\": \"948573849\",\n    \"linhas\": [\n        { \"id\": 5529 },\n        { \"id\": 5577 },\n        { \"id\": 5548 }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\",\n    \"nome\": \"ClienteModificado\",\n    \"cpf\": \"948573849\",\n    \"linhas\": [\n        { \"id\": 5529 },\n        { \"id\": 5577 },\n        { \"id\": 5548 }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\",\n    \"nome\": \"ClienteModificado\",\n    \"cpf\": \"948573849\",\n    \"linhas\": [\n        { \"id\": 5529 },\n        { \"id\": 5577 },\n        { \"id\": 5548 }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

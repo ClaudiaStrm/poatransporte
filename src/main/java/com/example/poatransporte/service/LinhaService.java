@@ -67,7 +67,6 @@ public class LinhaService extends AbstractCrudService <Linha> {
         InputStream json = url.openStream();
         Gson gson = new Gson();
         Type tipoListaLinhas = new TypeToken<List<LinhaDTO>>(){}.getType();
-
         return gson.fromJson(new InputStreamReader(json, StandardCharsets.UTF_8), tipoListaLinhas);
     }
 

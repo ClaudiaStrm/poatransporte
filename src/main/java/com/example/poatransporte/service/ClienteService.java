@@ -2,7 +2,6 @@ package com.example.poatransporte.service;
 
 import com.example.poatransporte.dto.ClienteDTO;
 import com.example.poatransporte.entity.Cliente;
-import com.example.poatransporte.entity.ClienteLinha;
 import com.example.poatransporte.entity.Linha;
 import com.example.poatransporte.repository.ClienteLinhaRepository;
 import com.example.poatransporte.repository.ClienteRepository;
@@ -46,18 +45,18 @@ public class ClienteService extends AbstractCrudService <Cliente> {
         return exibirClienteComLinhas(cliente);
     }
 
-    public void salvarLinhasCliente(Cliente cliente, List<Linha> linhas) {
+    private void salvarLinhasCliente(Cliente cliente, List<Linha> linhas) {
         if (ObjectUtils.isEmpty(linhas))  return;
         linhas.forEach(linha -> {
             clienteLinhaService.salvar(cliente, linhaService.findById(linha.getId()).get());
         });
     }
 
-    public ClienteDTO exibirClienteComLinhas(Cliente cliente) {
+    private ClienteDTO exibirClienteComLinhas(Cliente cliente) {
         List<Linha> linhasCliente = new ArrayList<>();
-        for (ClienteLinha clienteLinha : clienteLinhaRepository.findByIdCliente(cliente.getId())) {
+        clienteLinhaRepository.findByIdCliente(cliente.getId()).forEach(clienteLinha -> {
             linhasCliente.add(linhaService.findById(clienteLinha.getIdLinha()).get());
-        }
+        });
 
         return ClienteDTO.builder()
                 .nome(cliente.getNome())
