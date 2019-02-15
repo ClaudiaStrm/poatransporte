@@ -2,8 +2,8 @@
 
 O objetivo da aplicação é integras as linhas de ônibus de Porto Alegre e seus itinerários, além de salvar clientes e suas linhas de ônibus.
 
-[Api de lista de ônibus de Porto Alegre](http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=o)
-[Api de itinerário de uma determinada unidade de transporte](http://www.poatransporte.com.br/php/facades/process.php?a=il&p=5566)
+- [Api de lista de ônibus de Porto Alegre](http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%&t=o)
+- [Api de itinerário de uma determinada unidade de transporte](http://www.poatransporte.com.br/php/facades/process.php?a=il&p=5566)
 
 #### Deserialização 
 Para fazer a deserialização da lista de objetos foi utilizado [Gson](https://github.com/google/gson/blob/master/README.md). Para a deserialização das linhas, a escolha foi pela biblioteca [Jackson](https://github.com/FasterXML/jackson/blob/master/README.md). A mudança aconteceu porque a deserialização dos das linhas foi feita primeiro, e, por ser mais simples, gson foi a primeira opçao e funcionou bem. A api de itinerários é mais complexa e suas annotations facilitaram bastante nesse processo.
